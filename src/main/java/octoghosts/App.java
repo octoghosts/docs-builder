@@ -1,13 +1,18 @@
 package octoghosts;
 
-/**
- * Hello world!
- *
- */
-public class App 
+import java.util.List;
+
+import static octoghosts.FilesProcessor.processFiles;
+
+public class App
 {
-    public static void main( String[] args )
+    public static void main(String[] args)
     {
-        System.out.println( "Hello World!" );
+        List<Page> pages = processFiles(args.length > 0 ? args[0] : ".");
+
+        System.out.println("Pages (" + pages.size() + "):");
+        for (Page page : pages) {
+            System.out.println("\t" + page.getName());
+        }
     }
 }
